@@ -1,0 +1,51 @@
+﻿<Window x:Class="YieldDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Yield Return Demo" Height="350" Width="400">
+    <Grid>
+        <StackPanel Margin="10">
+            <Grid Margin="0,0,0,10">
+                <TextBox Name="StartTextBox" />
+                <TextBlock Text="Введите начало" 
+                           IsHitTestVisible="False" 
+                           Foreground="Gray"
+                           VerticalAlignment="Center" 
+                           Margin="5,0,0,0">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=StartTextBox}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+            <Grid Margin="0,0,0,10">
+                <TextBox Name="EndTextBox" />
+                <TextBlock Text="Введите конец" 
+                           IsHitTestVisible="False" 
+                           Foreground="Gray" 
+                           VerticalAlignment="Center"
+                           Margin="5,0,0,0">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=EndTextBox}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+            <Button Name="GenerateButton" Content="Начать" Click="GenerateButton_Click" Margin="0,0,0,10"/>
+            <ListBox Name="NumberListBox" Height="150" Margin="0,0,0,10"/>
+            <ProgressBar x:Name="ProgressIndicator" Height="23"/>
+        </StackPanel>
+    </Grid>
+</Window>
+
